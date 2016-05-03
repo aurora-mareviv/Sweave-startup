@@ -1,0 +1,32 @@
+% This is a Sweave template from TalesofR.wordpress.com.
+% When a line is preceeded by a "%" sign, it will be ignored by the program.
+% You can write what you want in this way. It usually serves for making invisible comments.
+% If you want to make a comment inside the chunk of R code, the symbol to start the line must be "#", instead of "%"
+% Let's start with the template:
+\documentclass{article}
+\begin{document}
+% chunks of R code are initiated by "<>=", and ended by "@"
+% with <<echo=FALSE>>=, the code is not printed, only the result.
+% <<echo=FALSE, message=FALSE, etc...>>= % These are chunk options
+You have to enter first the path to your R libraries, often located in your own user.
+<<>>=
+.libPaths("C:/Users/....../Documents/R/win-library/2.15")
+@
+The path is set. Let's begin with commands:
+<<>>=
+# this is a comment inside a chunk, it is not executed as code.
+dat<- data.frame(t=seq(0, 2*pi, by=0.1) )
+ xhrt <- function(t) 16*sin(t)^3
+ yhrt <- function(t) 13*cos(t)-5*cos(2*t)-2*cos(3*t)-cos(4*t)
+ dat$y=yhrt(dat$t)
+ dat$x=xhrt(dat$t)
+@
+
+You can write what you want outside the chunks. \\
+The next chunk is a plot:
+<<label=fig1plot, fig=TRUE>>=
+with(dat, plot(x,y, type="l"))
+with(dat, polygon(x,y, col="hotpink"))
+@
+
+\end{document}
