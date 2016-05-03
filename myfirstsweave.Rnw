@@ -3,15 +3,19 @@
 % You can write what you want in this way. It usually serves for making invisible comments.
 % If you want to make a comment inside the chunk of R code, the symbol to start the line must be "#", instead of "%"
 % Let's start with the template:
+
 \documentclass{article}
 \begin{document}
+
 % chunks of R code are initiated by "<>=", and ended by "@"
 % with <<echo=FALSE>>=, the code is not printed, only the result.
 % <<echo=FALSE, message=FALSE, etc...>>= % These are chunk options
 You have to enter first the path to your R libraries, often located in your own user.
+
 <<>>=
 .libPaths("C:/Users/....../Documents/R/win-library/2.15")
 @
+
 The path is set. Let's begin with commands:
 <<>>=
 # this is a comment inside a chunk, it is not executed as code.
